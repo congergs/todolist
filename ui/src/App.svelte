@@ -1,47 +1,84 @@
 <script lang="ts">
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
 </script>
 
 <main>
-  <div>
-    <a href="https://vite.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
+  <div class="container">
+    <div class="todo-list">
+      <button class="add-new-todo-list">New Todo List</button>
+      <ul>
+        <li>Alışveriş Listesi</li>
+        <li>Ev için gerekenler</li>
+        <li>Tatil öncesi işler</li>
+      </ul>
+    </div>
+
+    <div class="main">
+      <h2>Alışveriş Listesi <button class="add-new-todo-item">+</button></h2>
+      <div class="items">
+        <form>
+          <p>
+            <label for="done-1">
+              <input id="done-1" type="checkbox" />
+              Et
+            </label>
+          </p>
+          <p>
+            <label for="done-1">
+              <input id="done-1" type="checkbox" />
+              Süt
+            </label>
+          </p>
+          <p>
+            <label for="done-1">
+              <input id="done-1" type="checkbox" />
+              Yumurta
+            </label>
+          </p>
+        </form>
+      </div>
+    </div>
   </div>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-    <Counter />
-  </div>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
 </main>
 
 <style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
+  .container {
+    display: flex;
   }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+
+  .todo-list {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 10px;
+    list-style-type: none;
+    text-align: left;
+    padding-top: 1em;
   }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
+
+  .todo-list li {
+    padding: 10px;
+
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
   }
-  .read-the-docs {
-    color: #888;
+
+  .todo-list li:hover {
+    background-color: #ddd;
+  }
+
+  .main {
+    flex-grow: 1;
+    padding: 20px;
+
+    background-color: #fafafa;
+    overflow-y: auto;
+    min-width: 30em;
+  }
+
+  h2 {
+    text-align: left;
+  }
+
+  .items {
+    text-align: left;
   }
 </style>
